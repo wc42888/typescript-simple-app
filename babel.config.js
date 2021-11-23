@@ -6,7 +6,9 @@ module.exports = {
       {
         root: ['./'],
         alias: {
-          '^@(.+)': './src/\\1',
+          '@screens': './src/screens',
+          '@navigation': './src/navigation',
+          '@components': './src/components',
         },
         extensions: [
           '.ios.js',
