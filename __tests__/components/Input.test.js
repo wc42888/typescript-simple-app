@@ -1,14 +1,16 @@
 import React from 'react';
-import {useForm} from 'react-hook-form';
+import {useForm, testErrorMessage} from 'react-hook-form';
 import {Input} from '@components/index';
 import {render, fireEvent, cleanup} from '@testing-library/react-native';
 
 describe('test Input component', () => {
-  let inputField: any;
-  const testID = 'testButton';
+  let inputField;
+  let errorField;
+  const testID = 'testinput';
 
   beforeEach(() => {
     const {control, clearErrors} = useForm();
+
     const {getByTestId} = render(
       <Input
         name="testButton"
@@ -17,7 +19,9 @@ describe('test Input component', () => {
         testID={testID}
       />,
     );
-    inputField = getByTestId(testID);
+
+    inputField = getByTestId(`${testID}-input`);
+    errorField = getByTestId(`${testID}-error`);
   });
 
   it('should set isActive prop to be true when focused', () => {
@@ -30,6 +34,10 @@ describe('test Input component', () => {
     fireEvent(inputField, 'blur');
 
     expect(inputField.props.isActive).toBeFalsy;
+  });
+
+  it('should display the error message', () => {
+    expect(errorField.props.children).toBe(testErrorMessage);
   });
 
   afterAll(cleanup);

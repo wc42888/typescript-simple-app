@@ -1,12 +1,19 @@
-module.exports = {
-  useForm: () => ({
-    control: jest.fn(),
-    clearErrors: jest.fn(),
-  }),
-  useController: () => ({
-    field: {
-      onBlur: jest.fn(),
+export const useForm = () => ({
+  control: jest.fn(),
+  clearErrors: jest.fn(),
+});
+
+export const testValue = 'testValue';
+export const testErrorMessage = 'testErrorMessage';
+
+export const useController = () => ({
+  field: {
+    value: testValue,
+    onBlur: jest.fn(),
+  },
+  fieldState: {
+    error: {
+      message: testErrorMessage,
     },
-    fieldState: jest.fn(),
-  }),
-};
+  },
+});

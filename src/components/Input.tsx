@@ -57,9 +57,9 @@ const Input: FC<UseControllerProps & TextInputProps & IUseFormInputProps> = ({
         value={field.value}
         onChangeText={field.onChange}
         autoCapitalize="none"
-        testID={testID}
+        testID={`${testID}-input`}
       />
-      <Text>{fieldState?.error?.message}</Text>
+      <Text testID={`${testID}-error`}>{fieldState?.error?.message}</Text>
     </>
   );
 };
