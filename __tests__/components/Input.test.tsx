@@ -1,16 +1,15 @@
 import React from 'react';
-import {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {Input} from '@components/index';
 import {render, fireEvent, cleanup} from '@testing-library/react-native';
 
 describe('test Input component', () => {
-  let helpers: any;
+  let inputField: any;
   const testID = 'testButton';
 
-  beforeAll(() => {
+  beforeEach(() => {
     const {control, clearErrors} = useForm();
-    helpers = render(
+    const {getByTestId} = render(
       <Input
         name="testButton"
         control={control}
@@ -18,17 +17,16 @@ describe('test Input component', () => {
         testID={testID}
       />,
     );
+    inputField = getByTestId(testID);
   });
 
-  it('should call setIsActive setState function when it is focused', () => {
-    const {getByTestId} = helpers;
-
-    const inputField = getByTestId(testID);
-
+  it('should set isActive prop to be true when focused', () => {
     fireEvent(inputField, 'foucs');
 
     expect(inputField.props.isActive).toBeTruthy;
+  });
 
+  it('should set isActive prop to be false when blur', () => {
     fireEvent(inputField, 'blur');
 
     expect(inputField.props.isActive).toBeFalsy;
