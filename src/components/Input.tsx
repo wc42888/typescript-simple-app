@@ -11,6 +11,7 @@ interface IStyledInputProps extends TextInputProps {
 
 interface IUseFormInputProps {
   clearErrors: (name?: string | string[]) => void;
+  testID?: string;
 }
 
 const StyledInput = styled.TextInput<IStyledInputProps>`
@@ -25,6 +26,7 @@ const Input: FC<UseControllerProps & TextInputProps & IUseFormInputProps> = ({
   name,
   rules,
   clearErrors,
+  testID,
   ...inputProps
 }) => {
   const {field, fieldState} = useController({
@@ -52,9 +54,10 @@ const Input: FC<UseControllerProps & TextInputProps & IUseFormInputProps> = ({
         isActive={isActive}
         onFocus={onInputFocus}
         onBlur={onInputBlur}
-        value={field.value}
+        value={'dabc'}
         onChangeText={field.onChange}
         autoCapitalize="none"
+        testID={testID}
       />
       <Text>{fieldState?.error?.message}</Text>
     </>
