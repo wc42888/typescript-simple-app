@@ -9,6 +9,7 @@ module.exports = {
           '@screens': './src/screens',
           '@navigation': './src/navigation',
           '@components': './src/components',
+          '@config': './src/config',
         },
         extensions: [
           '.ios.js',
