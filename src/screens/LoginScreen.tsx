@@ -22,6 +22,9 @@ const LoginScreen: React.FC<{}> = () => {
         placeholder="Password"
         control={control}
         name="password"
+        rules={{
+          required: 'username is required',
+        }}
         clearErrors={clearErrors}
       />
     </>
