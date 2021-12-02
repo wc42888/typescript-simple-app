@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   },
   buttonLabel: {
     color: WHITE,
+    textTransform: 'capitalize',
   },
 });
 

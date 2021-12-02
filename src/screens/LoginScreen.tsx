@@ -47,7 +47,7 @@ const LoginScreen: React.FC<{}> = () => {
         }}
         clearErrors={clearErrors}
       />
-      <Button style={styles.loginButton} buttonLabel="Login" />
+      <Button style={styles.loginButton} buttonLabel="login" />
     </Container>
   );
 };
