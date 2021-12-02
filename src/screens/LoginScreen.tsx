@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
+import styled from 'styled-components/native';
 import {useForm} from 'react-hook-form';
 import {Input} from '@components/index';
+
+const Container = styled.View`
+  display: flex;
+  margin-horizontal: 20px;
+  margin-top: 200px;
+`;
 
 const LoginScreen: React.FC<{}> = () => {
   const {control, clearErrors} = useForm({
@@ -8,7 +15,7 @@ const LoginScreen: React.FC<{}> = () => {
   });
 
   return (
-    <>
+    <Container>
       <Input
         placeholder="Username"
         control={control}
@@ -27,7 +34,7 @@ const LoginScreen: React.FC<{}> = () => {
         }}
         clearErrors={clearErrors}
       />
-    </>
+    </Container>
   );
 };
 
