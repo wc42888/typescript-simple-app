@@ -2,7 +2,7 @@ import React, {FC, useState} from 'react';
 import styled from 'styled-components/native';
 import {Text, TextInputProps} from 'react-native';
 import {useController, UseControllerProps} from 'react-hook-form';
-import {LIGHT_GREY, GREEN} from '@config/colors';
+import {LIGHT_GREY, GREEN, RED} from '@config/colors';
 import {FONT_SIZE_NORMAL} from '@config/fonts';
 
 interface IStyledInputProps extends TextInputProps {
@@ -19,6 +19,10 @@ const StyledInput = styled.TextInput<IStyledInputProps>`
   border-bottom-color: ${({isActive}) => (isActive ? GREEN : LIGHT_GREY)};
   height: 50px;
   font-size: ${FONT_SIZE_NORMAL};
+`;
+
+const Error = styled.Text`
+  color: ${RED};
 `;
 
 const Input: FC<UseControllerProps & TextInputProps & IUseFormInputProps> = ({
@@ -59,7 +63,7 @@ const Input: FC<UseControllerProps & TextInputProps & IUseFormInputProps> = ({
         autoCapitalize="none"
         testID={`${testID}-input`}
       />
-      <Text testID={`${testID}-error`}>{fieldState?.error?.message}</Text>
+      <Error testID={`${testID}-error`}>{fieldState?.error?.message}</Error>
     </>
   );
 };
