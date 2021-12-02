@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
-import {useForm} from 'react-hook-form';
+import {useForm, FieldValues} from 'react-hook-form';
 import {Input, Button} from '@components/index';
 import {BLUE} from '@config/colors';
 
@@ -23,9 +23,16 @@ const styles = StyleSheet.create({
 });
 
 const LoginScreen: React.FC<{}> = () => {
-  const {control, clearErrors} = useForm({
+  const {control, clearErrors, handleSubmit} = useForm({
     mode: 'onBlur',
   });
+
+  const onLogin = async (data: FieldValues) =>
+    new Promise(resolve => {
+      setTimeout(() => {
+        resolve('ok');
+      }, 1000);
+    });
 
   return (
     <Container>
@@ -47,7 +54,11 @@ const LoginScreen: React.FC<{}> = () => {
         }}
         clearErrors={clearErrors}
       />
-      <Button style={styles.loginButton} buttonLabel="login" />
+      <Button
+        style={styles.loginButton}
+        buttonLabel="login"
+        onClick={handleSubmit(onLogin)}
+      />
     </Container>
   );
 };
