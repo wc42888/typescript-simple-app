@@ -7,21 +7,23 @@ describe('test Input component', () => {
   let inputField;
   let errorField;
   const testID = 'testinput';
+  const testPlaceholder = 'testinput';
 
   beforeEach(() => {
     const {control, clearErrors} = useForm();
 
-    const {getByTestId} = render(
+    const {getByPlaceholderText, getByText} = render(
       <Input
         name="testButton"
         control={control}
         clearErrors={clearErrors}
         testID={testID}
+        placeholder={testPlaceholder}
       />,
     );
 
-    inputField = getByTestId(`${testID}-input`);
-    errorField = getByTestId(`${testID}-error`);
+    inputField = getByPlaceholderText(testPlaceholder);
+    errorField = getByText(testErrorMessage);
   });
 
   it('should set isActive prop to be true when focused', () => {
