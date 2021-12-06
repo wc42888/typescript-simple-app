@@ -26,6 +26,7 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.16.3",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/jest-native": "^4.0.4",
     "@testing-library/react-native": "^8.0.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.66.4",
@@ -59,6 +60,9 @@
       "jsx",
       "json",
       "node"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest-setup.js"
     ]
   }
 }
