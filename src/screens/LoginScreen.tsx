@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext, Context} from 'react';
 import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {useForm, FieldValues} from 'react-hook-form';
 import {Input, Button} from '@components/index';
 import {BLUE} from '@config/colors';
+import {useAuthContext} from '@contexts/index';
 
 const Container = styled.View`
   display: flex;
@@ -27,12 +28,9 @@ const LoginScreen: React.FC<{}> = () => {
     mode: 'onBlur',
   });
 
-  const onLogin = async (data: FieldValues) =>
-    new Promise(resolve => {
-      setTimeout(() => {
-        resolve('ok');
-      }, 1000);
-    });
+  const {signIn} = useAuthContext();
+
+  const onLogin = async (data: FieldValues) => signIn();
 
   return (
     <Container>
