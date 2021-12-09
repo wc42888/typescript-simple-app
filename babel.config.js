@@ -10,6 +10,7 @@ module.exports = {
           '@navigation': './src/navigation',
           '@components': './src/components',
           '@config': './src/config',
+          '@contexts': './src/contexts',
         },
         extensions: [
           '.ios.js',
