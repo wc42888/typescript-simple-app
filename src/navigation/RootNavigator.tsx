@@ -1,16 +1,22 @@
-import React from 'react';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import React, {useMemo} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
-import styled from 'styled-components/native';
 import LoginStack from './LoginStack';
-import {withAuthContext} from '@contexts/authContext';
+import MainAppStack from './MainAppStack';
+import {withAuthContext, useAuthContext} from '@contexts/authContext';
 
-const RootNavigator = () => (
-  <SafeAreaProvider>
-    <NavigationContainer>
-      <LoginStack />
-    </NavigationContainer>
-  </SafeAreaProvider>
-);
+const RootNavigator = () => {
+  const {userToken} = useAuthContext();
+
+  const isLoggedIn = useMemo(() => !!userToken, [userToken]);
+
+  const renderStack = () => (isLoggedIn ? <MainAppStack /> : <LoginStack />);
+
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <NavigationContainer>{renderStack()}</NavigationContainer>
+    </SafeAreaView>
+  );
+};
 
 export default withAuthContext(RootNavigator);
