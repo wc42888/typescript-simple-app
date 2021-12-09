@@ -3,6 +3,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import styled from 'styled-components/native';
 import LoginStack from './LoginStack';
+import {withAuthContext} from '@contexts/authContext';
 
 const RootNavigator = () => (
   <SafeAreaProvider>
@@ -12,4 +13,4 @@ const RootNavigator = () => (
   </SafeAreaProvider>
 );
 
-export default RootNavigator;
+export default withAuthContext(RootNavigator);
