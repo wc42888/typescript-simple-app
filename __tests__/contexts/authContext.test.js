@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {render, fireEvent, cleanup, act} from '@testing-library/react-native';
-import {AuthContextProvider, AuthContext} from '@contexts/authContext';
+import {AuthContextProvider, useAuthContext} from '@contexts/authContext';
 import {Text, Pressable} from 'react-native';
 
 describe('test Auth context', () => {
@@ -11,7 +11,7 @@ describe('test Auth context', () => {
   beforeEach(() => {
     const textTestId = 'textTestId';
     const TestComponent = () => {
-      const {signIn, signOut, userToken} = useContext(AuthContext);
+      const {signIn, signOut, userToken} = useAuthContext();
 
       return (
         <>
@@ -21,11 +21,9 @@ describe('test Auth context', () => {
         </>
       );
     };
-    const {getByTestId, getByRole} = render(
-      <AuthContextProvider>
-        <TestComponent />
-      </AuthContextProvider>,
-    );
+    const {getByTestId, getByRole} = render(<TestComponent />, {
+      wrapper: AuthContextProvider,
+    });
     tokenText = getByTestId(textTestId);
     loginButton = getByRole('login');
     logoutButton = getByRole('logout');
