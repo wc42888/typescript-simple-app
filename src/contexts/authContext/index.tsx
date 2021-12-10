@@ -30,11 +30,7 @@ export const AuthContextProvider = ({
   const [authState, dispatch] = useReducer(authReducer, initialState);
 
   const signIn = async () => {
-    await new Promise(resolve =>
-      setTimeout(() => {
-        resolve('sucess');
-      }, 1000),
-    );
+    await new Promise(resolve => resolve('sucess'));
     dispatch({type: AuthAction.SIGNIN, payload: 'userToken'});
   };
 
