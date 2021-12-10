@@ -1,11 +1,5 @@
 import React, {useContext} from 'react';
-import {
-  render,
-  waitFor,
-  fireEvent,
-  cleanup,
-  act,
-} from '@testing-library/react-native';
+import {render, fireEvent, cleanup, act} from '@testing-library/react-native';
 import {AuthContextProvider, AuthContext} from '@contexts/authContext';
 import {Text, Pressable} from 'react-native';
 
