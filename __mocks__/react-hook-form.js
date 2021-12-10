@@ -1,6 +1,7 @@
 export const useForm = () => ({
   control: jest.fn(),
   clearErrors: jest.fn(),
+  handleSubmit: onSubmitCB => onSubmitCB(),
 });
 
 export const testValue = 'testValue';
