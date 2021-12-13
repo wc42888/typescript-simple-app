@@ -8,6 +8,7 @@
     "start": "rm -fr $TMPDIR/metro* && rm -rf $TMPDIR/react-* && react-native start -- --reset-cache",
     "clear-cache": "rm -fr $TMPDIR/metro* && rm -rf $TMPDIR/react-*",
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "postinstall": "patch-package"
   },
