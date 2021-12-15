@@ -11,6 +11,7 @@ module.exports = {
           '@components': './src/components',
           '@config': './src/config',
           '@contexts': './src/contexts',
+          '@redux': './src/redux',
         },
         extensions: [
           '.ios.js',
