@@ -6,6 +6,8 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>med</string>
+	<key>CodePushDeploymentKey</key>
+	<string>e5Gzkz2DcLISBusbaeKr6h0tKyLo446HzOL6-</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

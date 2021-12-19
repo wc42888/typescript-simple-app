@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">med</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">lWfZm7pVelFSTxs5Tqz13YKFiNpMsSjFkbRIA</string>
 </resources>
